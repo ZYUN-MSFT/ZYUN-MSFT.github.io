@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Table Creator - Office.js Demo</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/DevXFunnelDataRecorder/o.ico" />
+    
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #0078d4, #106ebe);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 28px;
+        }
+        
+        .header p {
+            margin: 0;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .main-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .info-section {
+            padding: 20px;
+            background-color: #e7f3ff;
+            border-left: 4px solid #0078d4;
+            margin-bottom: 20px;
+        }
+        
+        .info-section h3 {
+            margin-top: 0;
+            color: #0078d4;
+        }
+        
+        .features-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .features-list li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .features-list li::before {
+            content: "✓";
+            color: #28a745;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            font-size: 16px;
+        }
+        
+        .error {
+            text-align: center;
+            padding: 40px;
+            color: #d32f2f;
+            background-color: #ffebee;
+            border: 1px solid #ffcdd2;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📊 Excel Table Creator</h1>
+        <p>Create and manage Excel tables using Office.js API</p>
+    </div>
+    
+    <div class="info-section">
+        <h3>🚀 Features</h3>
+        <ul class="features-list">
+            <li>Create sample tables with realistic data</li>
+            <li>Build custom tables with your own headers and row count</li>
+            <li>Apply professional formatting and styling</li>
+            <li>Auto-fit columns for optimal display</li>
+            <li>Clear worksheet when needed</li>
+            <li>Real-time status updates and error handling</li>
+        </ul>
+    </div>
+    
+    <div class="main-container">
+        <div id="app">
+            <div class="loading">
+                📄 Loading Office.js... Please wait while we initialize the add-in.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Load our Excel Table Creator script -->
+    <script src="/excel-table-creator.js"></script>
+    
+    <script>
+        // Additional initialization if needed
+        console.log('Excel Table Creator page loaded');
+        
+        // Handle Office.js loading errors
+        Office.onReady((info) => {
+            console.log('Office.js ready, host:', info.host);
+        });
+        
+        // Fallback error handling
+        window.addEventListener('error', (event) => {
+            console.error('Global error:', event.error);
+            const app = document.getElementById('app');
+            if (app && app.innerHTML.includes('Loading Office.js')) {
+                app.innerHTML = `
+                    <div class="error">
+                        <h3>⚠️ Error Loading Add-in</h3>
+                        <p>There was an issue loading the Office.js API. This typically happens when:</p>
+                        <ul style="text-align: left; display: inline-block;">
+                            <li>The page is not running in Excel</li>
+                            <li>Office.js failed to load</li>
+                            <li>There's a network connectivity issue</li>
+                        </ul>
+                        <p><strong>To use this add-in:</strong></p>
+                        <ol style="text-align: left; display: inline-block;">
+                            <li>Open Excel (desktop, web, or mobile)</li>
+                            <li>Install this as an Office Add-in</li>
+                            <li>Use the manifest file to sideload the add-in</li>
+                        </ol>
+                    </div>
+                `;
+            }
+        });
+        
+        // Timeout fallback if Office.js doesn't load within 10 seconds
+        setTimeout(() => {
+            const app = document.getElementById('app');
+            if (app && app.innerHTML.includes('Loading Office.js')) {
+                app.innerHTML = `
+                    <div class="error">
+                        <h3>⏱️ Office.js Loading Timeout</h3>
+                        <p>Office.js is taking longer than expected to load.</p>
+                        <p>Please ensure you're running this in Excel or try refreshing the page.</p>
+                        <button onclick="location.reload()" style="
+                            background: #0078d4; 
+                            color: white; 
+                            border: none; 
+                            padding: 10px 20px; 
+                            border-radius: 4px; 
+                            cursor: pointer;
+                            font-size: 14px;
+                        ">🔄 Reload Page</button>
+                    </div>
+                `;
+            }
+        }, 10000);
+    </script>
+</body>
+</html>
