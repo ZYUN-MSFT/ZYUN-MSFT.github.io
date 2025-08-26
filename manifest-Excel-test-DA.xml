@@ -5,10 +5,10 @@
     xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="TaskPaneApp">
     <Id>c2a3e96e-992f-476d-862a-b226518fd3ff</Id>
     <Version>1.0.0.0</Version>
-    <ProviderName>DA Page Test</ProviderName>
+    <ProviderName>Excel Table Creator</ProviderName>
     <DefaultLocale>en-US</DefaultLocale>
-    <DisplayName DefaultValue="DevFX"/>
-    <Description DefaultValue="Quick Starter of Office Dev First eXperience"/>
+    <DisplayName DefaultValue="Excel Table Creator"/>
+    <Description DefaultValue="Create and manage Excel tables with Office.js API"/>
     <IconUrl DefaultValue="https://officedev.github.io/Office-Add-in-samples/Samples/excel-shared-runtime-global-state/assets/icon-32.png"/>
     <HighResolutionIconUrl DefaultValue="https://officedev.github.io/Office-Add-in-samples/Samples/excel-shared-runtime-global-state/assets/icon-64.png"/>
     <SupportUrl DefaultValue="https://www.contoso.com/help"/>
@@ -20,7 +20,7 @@
         <Host Name="Workbook"/>
     </Hosts>
     <DefaultSettings>
-        <SourceLocation DefaultValue="https://nx-staging.velixo.com/addin/copilot-extension.html"/>
+        <SourceLocation DefaultValue="https://ZYUN-MSFT.github.io/excel-table-creator.html"/>
     </DefaultSettings>
     <Permissions>ReadWriteDocument</Permissions>
     <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
@@ -72,17 +72,17 @@
         </bt:Images>
         <bt:Urls>
             <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812"/>
-            <bt:Url id="Commands.Url" DefaultValue="https://nx-staging.velixo.com/addin/copilot-extension.html"/>
-            <bt:Url id="Taskpane.Url" DefaultValue="https://nx-staging.velixo.com/addin/copilot-extension.html"/>
+            <bt:Url id="Commands.Url" DefaultValue="https://ZYUN-MSFT.github.io/excel-table-creator.html"/>
+            <bt:Url id="Taskpane.Url" DefaultValue="https://ZYUN-MSFT.github.io/excel-table-creator.html"/>
         </bt:Urls>
         <bt:ShortStrings>
             <bt:String id="GetStarted.Title" DefaultValue="Get started with your Office add-in!"/>
-            <bt:String id="CommandsGroup.Label" DefaultValue="DevFX"/>
-            <bt:String id="TaskpaneButton.Label" DefaultValue="Show DevFX Taskpane"/>
+            <bt:String id="CommandsGroup.Label" DefaultValue="Table Creator"/>
+            <bt:String id="TaskpaneButton.Label" DefaultValue="Create Excel Tables"/>
         </bt:ShortStrings>
         <bt:LongStrings>
-            <bt:String id="GetStarted.Description" DefaultValue="Your DevFX add-in loaded successfully. Go to the HOME tab and click the 'Show DevFX Taskpane' button to get started."/>
-            <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to Show DevFX Taskpane"/>
+            <bt:String id="GetStarted.Description" DefaultValue="Your Excel Table Creator add-in loaded successfully. Go to the HOME tab and click the 'Create Excel Tables' button to get started."/>
+            <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to open the Excel Table Creator"/>
         </bt:LongStrings>
         </Resources>
     </VersionOverrides>
